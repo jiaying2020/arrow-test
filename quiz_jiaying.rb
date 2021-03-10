@@ -33,38 +33,57 @@ begin
     end
 
 #箭頭方向判斷
-   init_dir = initial_direction
+init_dir = initial_direction
     
     if init_dir == 1
-          init_dir_arrow = "↑"
+          init_arrow = "↑"
     elsif init_dir == 2
-          init_dir_arrow = "→"
+          init_arrow = "→"
     elsif init_dir == 3
-          init_dir_arrow = "↓"
+          init_arrow = "↓"
     else  init_dir == 4
-          init_dir_arrow = "←"
+          init_arrow = "←"
     end
                
-    puts("OK! You want to first look this way:#{init_dir_arrow}")
+    puts("OK! You want to first look this way:#{init_arrow}")
 
     directions_base3 = directions.to_s(base=3)
     puts("In base 3 the Second Input reads as:#{directions_base3}")
     #directions轉三進位
     # In base 3 the Second Input reads as:2222
-    
-    arrow_r = "↖"
-    arrow_l = "↗" 
-    space = " "
+  
+    # arrow_r = "↖"
+    # arrow_l = "↗" 
+    # space = " "
+# -------
+      if init_dir == 1
+        initial_arrow = '↑'
+        arrow_1 = "↖"
+        arrow_2 = "↗"
+      elsif init_dir == 2
+        initial_arrow = '→'
+        arrow_1 = "↗"
+        arrow_2 = "↘"  
+      elsif init_dir == 3
+        initial_arrow = '↓'
+        arrow_1 = "↘"
+        arrow_2 = "↙"
+      elsif init_dir == 4
+        initial_arrow = '←'
+        arrow_1 = "↙"
+        arrow_2 = "↖"
+      end
+# -------
 
-    base3_step = directions_base3.split( // )
+    base3_step = directions_base3.split(//)
     base3_step_arrow = []
     base3_step.each do |num|
         if num == "0"
-            arrow = init_dir_arrow    
+            arrow = init_arrow    
         elsif num == "1"
-            arrow = arrow_r  
+            arrow = arrow_1  
         elsif num == "2" 
-            arrow = arrow_l
+            arrow = arrow_2
         end
         base3_step_arrow << arrow 
         end
@@ -74,8 +93,8 @@ begin
     ans_2 = ("I don't want to have the sun in my eyes, but by all means have a go at it!") 
 
 # 判斷: initial_direction為1,3 印出足跡，2,4印出英文句子
-    case init_dir
-    when init_dir == 1 || 3
+   
+    if init_dir == 1 || 3
         puts "Let's go then! " 
         ans_1 = 
         for move in base3_step_arrow
