@@ -32,6 +32,8 @@ begin
         raise ArgumentError
     end
 
+# 以下為作答區-------
+
 #箭頭方向判斷
 init_dir = initial_direction
     
@@ -52,7 +54,7 @@ init_dir = initial_direction
     #directions轉三進位
     # In base 3 the Second Input reads as:2222
   
-# 判斷1:當箭頭指向南北時，其他箭頭統一向上或向下  
+# 判斷:當箭頭指向南北時，其他箭頭統一向上或向下  
 # -------
       if    init_arrow == '↑'
             arrow_1 = "↖"
@@ -61,13 +63,14 @@ init_dir = initial_direction
             arrow_1 = "↗"
             arrow_2 = "↘"  
       elsif init_arrow  == '↓'
-             arrow_1 = "↘"
+            arrow_1 = "↘"
             arrow_2 = "↙"
       elsif init_arrow  == '←'
             arrow_1 = "↙"
             arrow_2 = "↖"
       end
 # -------
+ space = " "
 
     base3_step = directions_base3.split(//)
     base3_step_arrow = []
@@ -75,7 +78,7 @@ init_dir = initial_direction
         if num == "0"
             arrow = init_arrow   
         elsif num == "1"
-            arrow = arrow_1  
+            arrow = arrow_1
         elsif num == "2" 
             arrow = arrow_2
         end
@@ -97,8 +100,11 @@ init_dir = initial_direction
     else init_dir == 2 || 4
         puts ans_2 
     end
+
+
+      
    
-   
+# 以上為作答區-------
 rescue ArgumentError => e
     print("Incorrect input, giving up.\n")
     exit
