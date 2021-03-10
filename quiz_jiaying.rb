@@ -52,26 +52,20 @@ init_dir = initial_direction
     #directions轉三進位
     # In base 3 the Second Input reads as:2222
   
-    # arrow_r = "↖"
-    # arrow_l = "↗" 
-    # space = " "
+# 判斷1:當箭頭指向南北時，其他箭頭統一向上或向下  
 # -------
-      if init_dir == 1
-        initial_arrow = '↑'
-        arrow_1 = "↖"
-        arrow_2 = "↗"
-      elsif init_dir == 2
-        initial_arrow = '→'
-        arrow_1 = "↗"
-        arrow_2 = "↘"  
-      elsif init_dir == 3
-        initial_arrow = '↓'
-        arrow_1 = "↘"
-        arrow_2 = "↙"
-      elsif init_dir == 4
-        initial_arrow = '←'
-        arrow_1 = "↙"
-        arrow_2 = "↖"
+      if    init_arrow == '↑'
+            arrow_1 = "↖"
+            arrow_2 = "↗"
+      elsif init_arrow == '→'
+            arrow_1 = "↗"
+            arrow_2 = "↘"  
+      elsif init_arrow  == '↓'
+             arrow_1 = "↘"
+            arrow_2 = "↙"
+      elsif init_arrow  == '←'
+            arrow_1 = "↙"
+            arrow_2 = "↖"
       end
 # -------
 
@@ -79,7 +73,7 @@ init_dir = initial_direction
     base3_step_arrow = []
     base3_step.each do |num|
         if num == "0"
-            arrow = init_arrow    
+            arrow = init_arrow   
         elsif num == "1"
             arrow = arrow_1  
         elsif num == "2" 
