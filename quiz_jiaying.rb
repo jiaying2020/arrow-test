@@ -52,6 +52,7 @@ begin
     
     arrow_r = "↗"
     arrow_l = "↖"
+    space = " "
 
     base3_step = directions_base3.split( // )
     base3_step_arrow = []
@@ -60,22 +61,28 @@ begin
             arrow = initial_direction_arrow    
         elsif num == "1"
             arrow = arrow_r
-        elsif num == "2"
+        elsif num == "2" 
             arrow = arrow_l
         end
         base3_step_arrow << arrow 
         end
 
     puts "So that's how you want to go: #{base3_step_arrow.join}"
+      
+    ans_2 = ("I don't want to have the sun in my eyes, but by all means have a go at it!") 
 
 # 判斷: initial_direction為1,3 印出足跡，2,4印出英文句子
     case initial_direction
     when initial_direction == 1 || 3
-        puts("Let's go then!#{base3_step_arrow}")
-    when initial_direction == 2 || 4
-        puts("I don't want to have the sun in my eyes, but by all means have a go at it!") 
+        puts "Let's go then! " 
+        ans_1 = 
+        for move in base3_step_arrow
+        puts move
+        end
+    else initial_direction == 2 || 4
+        puts ans_2 
     end
-
+   
    
 rescue ArgumentError => e
     print("Incorrect input, giving up.\n")
