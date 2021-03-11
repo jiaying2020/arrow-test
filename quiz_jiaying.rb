@@ -46,32 +46,25 @@ init_dir = initial_direction
     else  init_dir == 4
           init_arrow = "←"
     end
-               
-    puts("OK! You want to first look this way:#{init_arrow}")
 
+    puts("OK! You want to first look this way:#{init_arrow}")
     directions_base3 = directions.to_s(base=3)
     puts("In base 3 the Second Input reads as:#{directions_base3}")
     #directions轉三進位
     # In base 3 the Second Input reads as:2222
   
-# 判斷:當箭頭指向南北時，其他箭頭統一向上或向下  
+# 判斷:按初始箭頭方向，調整轉三進位後數字對應的箭頭  
 # -------
       if    init_arrow == '↑'
-            arrow_1 = "↖"
-            arrow_2 = "↗"
+            arrow_1 = "↖" || arrow_2 = "↗"
       elsif init_arrow == '→'
-            arrow_1 = "↗"
-            arrow_2 = "↘"  
+            arrow_1 = "↗" || arrow_2 = "↘"  
       elsif init_arrow  == '↓'
-            arrow_1 = "↘"
-            arrow_2 = "↙"
+            arrow_1 = "↘" || arrow_2 = "↙"
       elsif init_arrow  == '←'
-            arrow_1 = "↙"
-            arrow_2 = "↖"
+            arrow_1 = "↙" || arrow_2 = "↖"
       end
 # -------
- space = " "
-
     base3_step = directions_base3.split(//)
     base3_step_arrow = []
     base3_step.each do |num|
@@ -86,23 +79,17 @@ init_dir = initial_direction
         end
 
     puts "So that's how you want to go: #{base3_step_arrow.join}"
-      
-    ans_2 = ("I don't want to have the sun in my eyes, but by all means have a go at it!") 
 
-# 判斷: initial_direction為1,3 印出足跡，2,4印出英文句子
-   
-    if init_dir == 1 || 3
-        puts "Let's go then! " 
-        ans_1 = 
+# 判斷: 箭頭上下印出足跡，左右2,4印出英文句子
+    if init_dir == 1 || init_dir == 3
+        puts "Let's go then!" 
+
         for move in base3_step_arrow
         puts move 
         end
-    else init_dir == 2 || 4
-        puts ans_2 
-    end
-
-
-      
+    else 
+        puts "I don't want to have the sun in my eyes, but by all means have a go at it!"
+    end  
    
 # 以上為作答區-------
 rescue ArgumentError => e
