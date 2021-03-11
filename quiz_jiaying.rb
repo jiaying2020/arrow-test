@@ -51,18 +51,21 @@ init_dir = initial_direction
     directions_base3 = directions.to_s(base=3)
     puts("In base 3 the Second Input reads as:#{directions_base3}")
     #directions轉三進位
-    # In base 3 the Second Input reads as:2222
   
 # 判斷:按初始箭頭方向，調整轉三進位後數字對應的箭頭  
 # -------
       if    init_arrow == '↑'
-            arrow_1 = "↖" || arrow_2 = "↗"
+            arrow_1 = "↖" 
+            arrow_2 = "↗"
       elsif init_arrow == '→'
-            arrow_1 = "↗" || arrow_2 = "↘"  
+            arrow_1 = "↗"
+            arrow_2 = "↘"  
       elsif init_arrow  == '↓'
-            arrow_1 = "↘" || arrow_2 = "↙"
+            arrow_1 = "↘"
+            arrow_2 = "↙"
       elsif init_arrow  == '←'
-            arrow_1 = "↙" || arrow_2 = "↖"
+            arrow_1 = "↙"
+            arrow_2 = "↖"
       end
 # -------
     base3_step = directions_base3.split(//)
@@ -75,19 +78,18 @@ init_dir = initial_direction
         elsif num == "2" 
             arrow = arrow_2
         end
-        base3_step_arrow << arrow 
-        end
+    base3_step_arrow << arrow 
+    end
 
     puts "So that's how you want to go: #{base3_step_arrow.join}"
 
 # 判斷: 箭頭上下印出足跡，左右2,4印出英文句子
     if init_dir == 1 || init_dir == 3
         puts "Let's go then!" 
-
         for move in base3_step_arrow
         puts move 
         end
-    else 
+    elsif  
         puts "I don't want to have the sun in my eyes, but by all means have a go at it!"
     end  
    
